@@ -37,7 +37,7 @@ if %errorlevel% NEQ 0 goto ERR_ROTEADOR
 powershell -Command "Write-Host '[OK]' -ForegroundColor Green -NoNewline; Write-Host ' Roteamento interno operacional.'"
 echo.
 
-rem --- PASSO 3: SAÍDA DE LINK (WAN / PROVIDER) ---
+rem --- PASSO 3: SAÍDA DE LINK (WAN / PROVEDOR) ---
 echo [3/3] Testando conectividade com o Ponto de Saida (WAN)...
 ping %IP_SAIDA_WAN% -n 2 | findstr /i "TTL" >nul
 if %errorlevel% NEQ 0 goto ERR_WAN
@@ -84,7 +84,7 @@ echo.
 powershell -Command "Write-Host '[FALHA DETECTADA NO PASSO 3/3 - LINK EXTERNO / WAN]' -ForegroundColor Red"
 echo --------------------------------------------------------
 echo AÇÕES RECOMENDADAS PARA O TÉCNICO:
-echo 1. Confirmar se o circuito / provedor externo (CTA) esta ativo.
+echo 1. Confirmar se o circuito / provedor externo esta ativo.
 echo 2. Acionar a Central de Atendimento / Provedor Responsavel.
 echo --------------------------------------------------------
 call :GERAR_LOG "Falha na Saida de Link / WAN (%IP_SAIDA_WAN%)"
